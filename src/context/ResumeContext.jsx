@@ -13,10 +13,17 @@ const initialState = {
 };
 
 function reducer(state, action) {
-  console.log(action.payload);
   switch (action.type) {
     case 'set/firstName':
       return { ...state, firstName: action.payload };
+    case 'set/lastName':
+      return { ...state, lastName: action.payload };
+    case 'set/age':
+      return { ...state, age: action.payload };
+    case 'set/email':
+      return { ...state, email: action.payload };
+    case 'set/phone':
+      return { ...state, phone: action.payload };
     default:
       throw new Error('Unknown action type');
   }

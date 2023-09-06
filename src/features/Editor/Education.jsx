@@ -19,7 +19,7 @@ function Education() {
   }
 
   return (
-    <div className="bg-blue-500">
+    <div className={`bg-blue-500 animate-slidedown`}>
       <form onSubmit={handleSubmit} className="my-2 divide-y border-b border-t">
         <div className="flex justify-center items-center">
           <label className="basis-72">University:</label>
