@@ -2,7 +2,6 @@ import { useState } from 'react';
 import Expander from './Expander';
 import CategoryManager from './CategoryManager';
 import { useResume } from '../../context/ResumeContext';
-import { Disclosure } from '@headlessui/react';
 
 function General() {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,10 +30,13 @@ function General() {
   if (!isOpen) return <Expander content="General" onClick={toggleCategory} />;
 
   return (
-    <div className={'bg-green-300 animate-slidedown'}>
-      <form onSubmit={handleSubmit} className="my-2 divide-y border-b border-t">
-        <div className="flex justify-center items-center">
-          <label className="basis-72">First Name:</label>
+    <div className={'bg-slate-100 animate-slidedown'}>
+      <form
+        onSubmit={handleSubmit}
+        className="my-2 divide-y border-b border-t flex flex-col justify-center items-stretch text-lg p-2"
+      >
+        <div className="flex justify-center">
+          <label className="basis-36 my-2">First Name:</label>
           <input
             type="text"
             value={firstName}
@@ -43,8 +45,8 @@ function General() {
           />
         </div>
 
-        <div className="flex justify-center items-center">
-          <label className="basis-72">Last Name:</label>
+        <div className="flex justify-center">
+          <label className="basis-36 my-2">Last Name:</label>
           <input
             type="text"
             value={lastName}
@@ -53,8 +55,8 @@ function General() {
           />
         </div>
 
-        <div className="flex justify-center items-center">
-          <label className="basis-72">Age:</label>
+        <div className="flex justify-center">
+          <label className="basis-36 my-2">Age:</label>
           <input
             type="number"
             value={age}
@@ -63,8 +65,8 @@ function General() {
           />
         </div>
 
-        <div className="flex justify-center items-center">
-          <label className="basis-72">Email:</label>
+        <div className="flex justify-center">
+          <label className="basis-36 my-2">Email:</label>
           <input
             type="email"
             value={email}
@@ -73,8 +75,8 @@ function General() {
           />
         </div>
 
-        <div className="flex justify-center items-center">
-          <label className="basis-72">Phone:</label>
+        <div className="flex justify-center">
+          <label className="basis-36 my-2">Phone:</label>
           <input
             type="tel"
             value={phone}
