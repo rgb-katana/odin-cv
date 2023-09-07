@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  background-color: theme('colors.slate.100');
+  background-color: theme("colors.slate.100");
 }
 
 .animate-slidedown {
@@ -35,5 +35,3 @@ body {
     transform: translateY(0%);
   }
 }
-
-/* h-6 w-6 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-2 */

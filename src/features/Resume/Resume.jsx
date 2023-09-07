@@ -1,19 +1,43 @@
-import { useResume } from '../../context/ResumeContext';
+import { useResume } from "../../context/ResumeContext";
 
 function Resume() {
-  const { firstName, lastName, age, email, phone } = useResume();
+  const {
+    firstName,
+    lastName,
+    age,
+    email,
+    phone,
+    uni,
+    field,
+    studyFrom,
+    studyTo,
+    company,
+    position,
+    workFrom,
+    workTo,
+  } = useResume();
 
   return (
-    <div className="bg-teal-400 p-3 w-full md:min-w-[60%] md:h-auto h-[99%] min-h-[80%] md:max-h-[900px] grid grid-rows-[1fr_2fr_1fr] gap-y-3">
-      <div className="bg-teal-100">
-        <p>firstName: {firstName}</p>
-        <p>lastName: {lastName}</p>
-        <p>age: {age}</p>
-        <p>email: {email}</p>
-        <p>phone: {phone}</p>
+    <div className="bg-yellow-400 p-3 w-full overflow-auto md:max-h-[80%] md:min-h-[80%] grid grid-rows-[1fr_2fr_1fr] gap-3 max-h-[99%] min-h-[99%] md:max-w-xl md:rounded-sm my-1 md:my-0">
+      <div className="bg-slate-100 grid grid-row-[1fr_1fr_1fr] py-3 px-2">
+        <p className="flex items-center">First name: {firstName}</p>
+        <p className="flex items-center">Last Name: {lastName}</p>
+        <p className="flex items-center">Age: {age}</p>
       </div>
-      <div className="bg-teal-200">Main Part</div>
-      <div className="bg-teal-300">Bottom Part</div>
+      <div className="bg-slate-100 grid grid-row-[1fr_1fr_1fr_1fr_1fr_1fr_1fr] py-3 px-2">
+        <p className="flex items-center">University: {uni}</p>
+        <p className="flex items-center">Field: {field}</p>
+        <p className="flex items-center">Studied from: {studyFrom}</p>
+        <p className="flex items-center">Until the year: {studyTo}</p>
+        <p className="flex items-center">Email: {email}</p>
+        <p className="flex items-center">Phone: {phone}</p>
+      </div>
+      <div className="bg-slate-100 grid grid-row-[1fr_1fr_1fr_1fr] py-3 px-2">
+        <p className="flex items-center">Company: {company}</p>
+        <p className="flex items-center">Position: {position}</p>
+        <p className="flex items-center">Worked from: {workFrom}</p>
+        <p className="flex items-center">Until the year: {workTo}</p>
+      </div>
     </div>
   );
 }
