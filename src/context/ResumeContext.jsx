@@ -16,6 +16,7 @@ const initialState = {
   position: "",
   workFrom: "",
   workTo: "",
+  haveWorked: false,
 };
 
 function reducer(state, action) {
@@ -46,6 +47,8 @@ function reducer(state, action) {
       return { ...state, workFrom: action.payload };
     case "set/workTo":
       return { ...state, workTo: action.payload };
+    case "set/haveWorked":
+      return { ...state, haveWorked: action.payload };
     default:
       throw new Error("Unknown action type");
   }
@@ -67,6 +70,7 @@ function ResumeProvider({ children }) {
       position,
       workFrom,
       workTo,
+      haveWorked,
     },
     dispatch,
   ] = useReducer(reducer, initialState);
@@ -87,6 +91,7 @@ function ResumeProvider({ children }) {
         position,
         workFrom,
         workTo,
+        haveWorked,
         dispatch,
       }}
     >

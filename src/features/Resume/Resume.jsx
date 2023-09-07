@@ -15,6 +15,7 @@ function Resume() {
     position,
     workFrom,
     workTo,
+    haveWorked,
   } = useResume();
 
   return (
@@ -32,12 +33,18 @@ function Resume() {
         <p className="flex items-center">Email: {email}</p>
         <p className="flex items-center">Phone: {phone}</p>
       </div>
-      <div className="bg-slate-100 grid grid-row-[1fr_1fr_1fr_1fr] py-3 px-2">
-        <p className="flex items-center">Company: {company}</p>
-        <p className="flex items-center">Position: {position}</p>
-        <p className="flex items-center">Worked from: {workFrom}</p>
-        <p className="flex items-center">Until the year: {workTo}</p>
-      </div>
+      {haveWorked ? (
+        <div className="bg-slate-100 grid grid-row-[1fr_1fr_1fr_1fr] py-3 px-2">
+          <p className="flex items-center">Company: {company}</p>
+          <p className="flex items-center">Position: {position}</p>
+          <p className="flex items-center">Worked from: {workFrom}</p>
+          <p className="flex items-center">Until the year: {workTo}</p>
+        </div>
+      ) : (
+        <div className="bg-slate-100 flex justify-center items-center">
+          <p>Did not have any work experience</p>
+        </div>
+      )}
     </div>
   );
 }

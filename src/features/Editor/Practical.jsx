@@ -9,8 +9,9 @@ function Practical() {
   const [position, setPosition] = useState("");
   const [from, setFrom] = useState("");
   const [to, setTo] = useState("");
+  const [haveWorked, setHaveWorked] = useState(false);
 
-  const { dispatch } = useResume();
+  const { haveWorked: haveWorkedContext, dispatch } = useResume();
 
   if (!isOpen) return <Expander content="Practical" onClick={toggleCategory} />;
 
@@ -23,9 +24,14 @@ function Practical() {
     e.preventDefault();
     dispatch({ type: "set/company", payload: company });
     dispatch({ type: "set/position", payload: position });
-    dispatch({ type: "set/studyFrom", payload: from });
-    dispatch({ type: "set/studyTo", payload: to });
+    dispatch({ type: "set/workFrom", payload: from });
+    dispatch({ type: "set/workTo", payload: to });
     setIsOpen(!isOpen);
+  }
+
+  function toggleWorked(e) {
+    setHaveWorked(e.target.checked);
+    dispatch({ type: "set/haveWorked", payload: e.target.checked });
   }
 
   return (
@@ -34,6 +40,23 @@ function Practical() {
         onSubmit={handleSubmit}
         className="my-2 divide-y border-b border-t flex flex-col justify-center items-stretch text-lg p-2"
       >
+        <div className="flex items-center justify-center gap-x-2">
+          <input
+            className="h-4 w-4 accent-yellow-400 focus:outline-none focus:ring focus:ring-yellow-400 focus:ring-offset-1"
+            type="checkbox"
+            name="haveWorked"
+            id="haveWorked"
+            checked={haveWorkedContext}
+            value={haveWorked}
+            onChange={(e) => {
+              toggleWorked(e);
+            }}
+          />
+          <label htmlFor="haveWorked" className="font-medium">
+            Did you work before?
+          </label>
+        </div>
+
         <div className="flex justify-center pb-1 pt-1 mt-1">
           <label className="basis-36 my-2">Company:</label>
           <input
