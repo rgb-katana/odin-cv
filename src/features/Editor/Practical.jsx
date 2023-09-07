@@ -53,7 +53,7 @@ function Practical() {
             }}
           />
           <label htmlFor="haveWorked" className="font-medium">
-            Did you work before?
+            I have worked before
           </label>
         </div>
 
